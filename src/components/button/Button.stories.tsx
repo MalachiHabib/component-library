@@ -1,21 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import type { Meta, StoryFn } from '@storybook/react';
+import { Theme, ThemeProvider } from '../theme/ThemeProvider';
+import { Button, ButtonProps } from './Button';
 
-const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+export default {
+  title: 'elements/Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
+  argTypes: {
+    theme: {
+      control: {
+        type: 'radio',
+        options: [Theme.Light, Theme.Dark],
+      },
+    },
   },
-  tags: ['autodocs'],
+} as Meta<typeof Button>;
+
+const ButtonTemplate: StoryFn<ButtonProps> = (args) => (
+  <ThemeProvider theme={args.theme}>
+    <Button {...args}>Button</Button>
+  </ThemeProvider>
+);
+
+export const Primary = ButtonTemplate.bind({});
+Primary.args = {
+  variant: 'primary',
+  theme: Theme.Light,
 };
 
-export default meta;
+export const Secondary = ButtonTemplate.bind({});
+Secondary.args = {
+  variant: 'secondary',
+  theme: Theme.Light,
+};
 
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-  args: {
-    children: 'Button',
-  },
+export const WithCustomStyle = ButtonTemplate.bind({});
+WithCustomStyle.args = {
+  className: 'bg-red-500 p-8 w-[200px] text-sm rounded-full',
+  theme: Theme.Light,
 };
