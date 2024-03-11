@@ -1,30 +1,65 @@
-# React + TypeScript + Vite
+# Malachi's Component Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Version**  
+**License:** MIT
 
-Currently, two official plugins are available:
+Welcome to Malachi's Component Library! This is a collection of reusable and customizable UI components built with React and TypeScript. Whether you're building a web application or a design system, this library provides a solid foundation to create beautiful and interactive user interfaces.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+To install Malachi's Component Library, run the following command:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```bash
+npm install malachi-component-library
+```
 
-- Configure the top-level `parserOptions` property like this:
+## Usage
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+Import the desired component(s) from the library and start using them in your React application.
+
+```ts
+import { Button } from 'malachi-component-library';
+
+function MyComponent() {
+  return (
+    <div>
+      <Button variant="primary">Click me</Button>
+    </div>
+  );
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Components
+
+Button: The Button component is designed with flexibility and extensibility in mind, allowing you to customize its appearance and behavior to match your application's needs.
+
+## Theming
+
+```ts
+import { ThemeProvider } from 'malachi-component-library';
+
+const theme = {
+  colors: {
+    primary: '#007bff',
+    secondary: '#6c757d',
+    // ...
+  },
+  // ...
+};
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      {/* Your application components */}
+    </ThemeProvider>
+  );
+}
+```
+
+## Contributing
+
+We welcome contributions from the community! If you encounter any issues, have suggestions for improvements, or would like to contribute new components, please read our contributing guidelines to get started
+
+## License
+
+Malachi's Component Library is open-source software licensed under the MIT license.
