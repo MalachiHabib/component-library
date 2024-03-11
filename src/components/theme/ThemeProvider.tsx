@@ -1,25 +1,37 @@
+// ThemeProvider.tsx
 import { createContext, ReactNode } from 'react';
 import React from 'react';
 
-export enum Theme {
-  Light = 'light',
-  Dark = 'dark',
+export type ThemeChoice = 'light' | 'dark';
+
+export const defaultThemeChoice: ThemeChoice = 'dark';
+
+export interface Theme {
+  choice: ThemeChoice;
 }
 
-export const defaultTheme = Theme.Light;
+export const defaultTheme: Theme = {
+  choice: defaultThemeChoice,
+};
 
 export const ThemeContext = createContext<Theme>(defaultTheme);
 
 export interface ThemeProviderProps {
-  theme?: Theme;
+  theme?: ThemeChoice;
   children: ReactNode;
 }
 
 export function ThemeProvider({
-  theme = defaultTheme,
+  theme = defaultThemeChoice,
   children,
 }: ThemeProviderProps) {
+  const selectedTheme: Theme = {
+    choice: theme,
+  };
+
   return (
-    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={selectedTheme}>
+      {children}
+    </ThemeContext.Provider>
   );
 }
