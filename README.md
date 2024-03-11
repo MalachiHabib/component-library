@@ -1,6 +1,6 @@
 # Malachi's Component Library
 
-**Version**  
+**Version** 1.0.2
 **License:** MIT
 
 Welcome to Malachi's Component Library! This is a collection of reusable and customizable UI components built with React and TypeScript. Whether you're building a web application or a design system, this library provides a solid foundation to create beautiful and interactive user interfaces.
