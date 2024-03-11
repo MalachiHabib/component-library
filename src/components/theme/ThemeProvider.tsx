@@ -1,4 +1,5 @@
 import { createContext, ReactNode } from 'react';
+import React from 'react';
 
 export enum Theme {
   Light = 'light',
