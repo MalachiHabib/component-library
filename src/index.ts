@@ -1,7 +1,7 @@
 // @ts-nocheck
-import { Button } from './components/button/Button';
-import {
+export { Button } from "./components/button/Button";
+export {
   ThemeContext,
   Theme,
   ThemeProvider,
-} from './components/theme/ThemeProvider';
+} from "./components/theme/ThemeProvider";
