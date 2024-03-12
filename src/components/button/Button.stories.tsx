@@ -1,7 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
 import React from 'react';
-import { ThemeProvider } from '../theme/ThemeProvider';
+import { ThemeProvider, getThemeByName } from '../theme/ThemeProvider';
+import { defaultTheme } from '../../types/predefinedThemes';
 
 export default {
   title: 'elements/Button',
@@ -9,8 +10,7 @@ export default {
   argTypes: {
     theme: {
       control: {
-        type: 'radio',
-        options: ['light', 'dark'],
+        type: 'object',
       },
     },
   },
@@ -25,24 +25,25 @@ const ButtonTemplate: StoryFn<ButtonProps> = (args) => (
 export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   variant: 'primary',
-  theme: 'light',
+  theme: defaultTheme,
 };
 
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   variant: 'secondary',
-  theme: 'light',
+  theme: defaultTheme,
 };
 
 export const WithCustomStyle = ButtonTemplate.bind({});
 WithCustomStyle.args = {
   className: 'bg-red-500 text-sm rounded-full hover:bg-red-700',
-  theme: 'light',
+  theme: defaultTheme,
 };
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
   disabled: true,
+  theme: defaultTheme,
 };
 
 export const Sizes: StoryFn<ButtonProps> = (args) => (
@@ -66,7 +67,7 @@ export const Sizes: StoryFn<ButtonProps> = (args) => (
 );
 Sizes.args = {
   variant: 'primary',
-  theme: 'light',
+  theme: defaultTheme,
 };
 
 export const Loading: StoryFn<ButtonProps> = (args) => (
@@ -78,18 +79,18 @@ export const Loading: StoryFn<ButtonProps> = (args) => (
 );
 Loading.args = {
   variant: 'primary',
-  theme: 'light',
+  theme: defaultTheme,
 };
 
 export const OverrideThemeProvider: StoryFn<ButtonProps> = (args) => (
-  <ThemeProvider theme="dark">
+  <ThemeProvider theme={defaultTheme}>
     <div>
-      <p>ThemeProvider theme: dark</p>
+      <p>ThemeProvider theme: default</p>
       <Button {...args}>Button with ThemeProvider theme</Button>
       <br />
       <br />
-      <p>prop theme: light within the provider</p>
-      <Button {...args} theme="light">
+      <p>prop theme: custom within the provider</p>
+      <Button {...args} theme={getThemeByName('dark')}>
         Button with overridden theme
       </Button>
     </div>

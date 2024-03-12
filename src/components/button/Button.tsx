@@ -6,14 +6,10 @@ import {
   MouseEvent,
   useMemo,
 } from 'react';
-import {
-  ThemeChoice,
-  ThemeContext,
-  defaultThemeChoice,
-} from '../theme/ThemeProvider';
+import { ThemeContext } from '../theme/ThemeProvider';
 import { SpinnerIcon } from '../icons/SpinnerIcon';
 import React from 'react';
-import { VariantStyles, getVariantStyles } from '../../utils/getVariantStyles';
+import { Theme } from '../..';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -24,26 +20,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   size?: 'sm' | 'md' | 'lg';
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary';
-  theme?: ThemeChoice;
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error';
+  theme?: Theme;
 }
 
-const buttonVariants: VariantStyles = {
-  light: {
-    primary:
-      'bg-blue-500 text-white border border-blue-500 shadow hover:shadow-lg focus:ring-blue-500 focus:ring-opacity-50',
-    secondary:
-      'bg-gray-200 text-gray-800 border border-gray-300 shadow hover:shadow-lg focus:ring-gray-300 focus:ring-opacity-50',
-  },
-  dark: {
-    primary:
-      'bg-gray-800 text-gray-100 border border-gray-700 shadow hover:shadow-lg focus:ring-gray-500 focus:ring-opacity-50',
-    secondary:
-      'bg-gray-700 text-gray-200 border border-gray-600 shadow hover:shadow-lg focus:ring-gray-600 focus:ring-opacity-50',
-  },
-};
-
-const baseStyles =
+const coreStyles =
   'rounded-lg font-medium transition ease-in-out duration-300 focus:outline-none focus:ring focus:ring-opacity-50';
 
 const sizes = {
@@ -65,17 +46,9 @@ export function Button({
   theme: propTheme,
   ...props
 }: ButtonProps) {
-  const contextTheme = useContext(ThemeContext);
-  const theme = propTheme || contextTheme.choice || defaultThemeChoice;
+  const theme = propTheme || useContext(ThemeContext);
 
-  console.log(className);
-
-  const variantClassName = getVariantStyles(
-    baseStyles,
-    buttonVariants,
-    theme,
-    variant
-  );
+  const variantClassName = `${theme.colors[variant]} border border-${variant}-500 shadow hover:shadow-lg focus:ring-${variant}-500 focus:ring-opacity-50`;
 
   const styles = useMemo(() => {
     const baseStyles = className || variantClassName;
@@ -92,7 +65,7 @@ export function Button({
       conditionalStyles.push(hoverStyles);
     }
 
-    return clsx(baseStyles, sizeStyles, ...conditionalStyles);
+    return clsx(coreStyles, baseStyles, sizeStyles, ...conditionalStyles);
   }, [variantClassName, size, disabled, loading, className]);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
