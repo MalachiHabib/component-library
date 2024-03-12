@@ -1,4 +1,3 @@
-// src/theme/themes.ts
 export interface Theme {
   colors: {
     primary: string;
@@ -8,3 +7,5 @@ export interface Theme {
     error: string;
   };
 }
+
+export type ThemeName = 'default' | 'light' | 'dark';

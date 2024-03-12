@@ -1,8 +1,8 @@
 // src/components/Badge/Badge.tsx
 import React, { useContext } from 'react';
 import clsx from 'clsx';
-import { Theme } from '../..';
-import { ThemeContext } from '../theme/ThemeProvider';
+import { ThemeContext } from 'components/theme/ThemeProvider';
+import { Theme } from 'types/themes';
 
 export interface BadgeProps {
   children: React.ReactNode;

@@ -6,10 +6,10 @@ import {
   MouseEvent,
   useMemo,
 } from 'react';
-import { ThemeContext } from '../theme/ThemeProvider';
-import { SpinnerIcon } from '../icons/SpinnerIcon';
+import { ThemeContext } from 'components/theme/ThemeProvider';
+import { SpinnerIcon } from 'components/icons/SpinnerIcon';
 import React from 'react';
-import { Theme } from '../..';
+import { Theme } from 'types/themes';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;

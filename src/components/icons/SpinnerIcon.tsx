@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
 import { Tooltip } from 'react-tooltip';
-import { classNotPresent } from '../../utils/classNotPresent';
-import { generateTooltipId } from '../../utils/generateTooltipId';
+import { classNotPresent } from 'utils/classNotPresent';
+import { generateTooltipId } from 'utils/generateTooltipId';
 
 interface IconProps {
   className?: string;

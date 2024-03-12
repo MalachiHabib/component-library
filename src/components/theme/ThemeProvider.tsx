@@ -1,22 +1,15 @@
-// src/components/theme/ThemeProvider.tsx
 import { createContext, ReactNode } from 'react';
-import { Theme } from '../../types/themes';
-import {
-  defaultTheme,
-  darkTheme,
-  lightTheme,
-} from '../../types/predefinedThemes';
+import { Theme, ThemeName } from 'types/themes';
 import React from 'react';
+import { defaultTheme } from 'utils/predefinedThemes';
+import { getThemeByName } from 'utils/getThemeByName';
 
-export type ThemeName = 'default' | 'light' | 'dark' | 'custom';
-
-export const ThemeContext = createContext<Theme>(defaultTheme);
-
-export interface ThemeProviderProps {
+interface ThemeProviderProps {
   theme?: Theme;
   themeName?: ThemeName;
   children: ReactNode;
 }
+export const ThemeContext = createContext<Theme>(defaultTheme);
 
 export function ThemeProvider({
   themeName = 'default',
@@ -29,15 +22,4 @@ export function ThemeProvider({
       {children}
     </ThemeContext.Provider>
   );
-}
-
-export function getThemeByName(themeName: ThemeName): Theme {
-  switch (themeName) {
-    case 'light':
-      return lightTheme;
-    case 'dark':
-      return darkTheme;
-    default:
-      return defaultTheme;
-  }
 }

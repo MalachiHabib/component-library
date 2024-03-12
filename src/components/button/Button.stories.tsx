@@ -1,8 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from 'components/button/Button';
 import React from 'react';
-import { ThemeProvider, getThemeByName } from '../theme/ThemeProvider';
-import { defaultTheme } from '../../types/predefinedThemes';
+import { ThemeProvider } from 'components/theme/ThemeProvider';
+import { defaultTheme } from 'utils/predefinedThemes';
 
 export default {
   title: 'elements/Button',
@@ -90,7 +90,18 @@ export const OverrideThemeProvider: StoryFn<ButtonProps> = (args) => (
       <br />
       <br />
       <p>prop theme: custom within the provider</p>
-      <Button {...args} theme={getThemeByName('dark')}>
+      <Button
+        {...args}
+        theme={{
+          colors: {
+            primary: 'bg-blue-500 text-white',
+            secondary: 'bg-gray-500 text-white',
+            success: 'bg-green-500 text-white',
+            warning: 'bg-yellow-500 text-black',
+            error: 'bg-red-500 text-white',
+          },
+        }}
+      >
         Button with overridden theme
       </Button>
     </div>
