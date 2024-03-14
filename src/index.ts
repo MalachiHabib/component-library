@@ -4,3 +4,4 @@ export { ThemeContext, ThemeProvider } from './components/theme/ThemeProvider';
 export { Theme } from './types/themes';
 export { darkTheme, defaultTheme, lightTheme } from './utils/predefinedThemes';
 export { Showcase } from './components/showcase/Showcase';
+export { button } from './components/ui/button';

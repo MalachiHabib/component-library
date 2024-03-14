@@ -85,6 +85,7 @@ export function Button({
     loadingClassName
   );
 
+  console.log(styles);
   return (
     <button
       className={styles}
@@ -97,3 +98,5 @@ export function Button({
     </button>
   );
 }
+
+//rounded-lg font-medium transition ease-in-out duration-300 focus:outline-none focus:ring focus:ring-opacity-50 bg-blue-500 text-white border border-primary-500 shadow hover:shadow-lg focus:ring-primary-500 focus:ring-opacity-50 px-6 py-3 text-base hover:shadow-lg hover:-translate-y-0.5 transform transition-all duration-200
