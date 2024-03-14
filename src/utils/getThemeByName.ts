@@ -1,5 +1,5 @@
-import { lightTheme, darkTheme, defaultTheme } from 'utils/predefinedThemes';
 import { Theme, ThemeName } from 'types/themes';
+import { darkTheme, defaultTheme, lightTheme } from 'utils/predefinedThemes';
 
 export function getThemeByName(themeName: ThemeName): Theme {
   switch (themeName) {

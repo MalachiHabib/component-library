@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import React from 'react';
+import clsx from 'clsx';
 import { Tooltip } from 'react-tooltip';
 import { classNotPresent } from 'utils/classNotPresent';
 import { generateTooltipId } from 'utils/generateTooltipId';

@@ -1,8 +1,8 @@
+import React from 'react';
 import { createContext, ReactNode } from 'react';
 import { Theme, ThemeName } from 'types/themes';
-import React from 'react';
-import { defaultTheme } from 'utils/predefinedThemes';
 import { getThemeByName } from 'utils/getThemeByName';
+import { defaultTheme } from 'utils/predefinedThemes';
 
 interface ThemeProviderProps {
   theme?: Theme;

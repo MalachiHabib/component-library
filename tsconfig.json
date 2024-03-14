@@ -17,6 +17,7 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*" ],
       "types/*": ["src/types/*"],
       "components/*": ["src/components/*"],
       "utils/*": ["src/utils/*"],

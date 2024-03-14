@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Badge, BadgeProps } from './Badge';
 import { ThemeProvider } from 'components/theme/ThemeProvider';
+
+import { Badge, BadgeProps } from './Badge';
 
 export default {
   title: 'Components/Badge',

@@ -1,4 +1,3 @@
-// src/components/Badge/Badge.tsx
 import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { ThemeContext } from 'components/theme/ThemeProvider';
@@ -17,8 +16,9 @@ export const Badge: React.FC<BadgeProps> = ({
   className,
   theme: propTheme,
 }) => {
-  const theme = propTheme || useContext(ThemeContext);
-  console.log(theme);
+  const contextTheme = useContext(ThemeContext);
+  const theme = propTheme || contextTheme;
+
   const badgeClasses = clsx(
     'inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold',
     theme.colors[variant],

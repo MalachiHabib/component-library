@@ -1,14 +1,14 @@
+import React from 'react';
 import clsx from 'clsx';
+import { SpinnerIcon } from 'components/icons/SpinnerIcon';
+import { ThemeContext } from 'components/theme/ThemeProvider';
 import {
   ButtonHTMLAttributes,
+  MouseEvent,
   ReactNode,
   useContext,
-  MouseEvent,
   useMemo,
 } from 'react';
-import { ThemeContext } from 'components/theme/ThemeProvider';
-import { SpinnerIcon } from 'components/icons/SpinnerIcon';
-import React from 'react';
 import { Theme } from 'types/themes';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -46,7 +46,8 @@ export function Button({
   theme: propTheme,
   ...props
 }: ButtonProps) {
-  const theme = propTheme || useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
+  const theme = propTheme || themeContext;
 
   const variantClassName = `${theme.colors[variant]} border border-${variant}-500 shadow hover:shadow-lg focus:ring-${variant}-500 focus:ring-opacity-50`;
 
