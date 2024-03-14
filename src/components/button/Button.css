@@ -1,4 +1,3 @@
-/* Button.css */
 .btn {
   @apply rounded-lg font-medium transition ease-in-out duration-300 focus:outline-none focus:ring focus:ring-opacity-50;
 }
