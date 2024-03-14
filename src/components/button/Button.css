@@ -1,0 +1,56 @@
+/* Button.css */
+.btn {
+  @apply rounded-lg font-medium transition ease-in-out duration-300 focus:outline-none focus:ring focus:ring-opacity-50;
+}
+
+.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn-md {
+  @apply px-6 py-3 text-base;
+}
+
+.btn-lg {
+  @apply px-8 py-4 text-lg;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-white border-blue-500 shadow hover:shadow-lg focus:ring-blue-500;
+}
+
+.btn-secondary {
+  @apply bg-gray-500 text-white border-gray-500 shadow hover:shadow-lg focus:ring-gray-500;
+}
+
+.btn-success {
+  @apply bg-green-500 text-white border-green-500 shadow hover:shadow-lg focus:ring-green-500;
+}
+
+.btn-warning {
+  @apply bg-yellow-500 text-black border-yellow-500 shadow hover:shadow-lg focus:ring-yellow-500;
+}
+
+.btn-error {
+  @apply bg-red-500 text-white border-red-500 shadow hover:shadow-lg focus:ring-red-500;
+}
+
+.btn-loading {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.btn-hover:not(.btn-loading) {
+  @apply hover:shadow-lg hover:-translate-y-0.5 transform transition-all duration-200;
+}
+
+.spinner-sm {
+  @apply h-4 w-4;
+}
+
+.spinner-md {
+  @apply h-5 w-5;
+}
+
+.spinner-lg {
+  @apply h-6 w-6;
+}
